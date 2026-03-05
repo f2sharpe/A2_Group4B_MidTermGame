@@ -8,31 +8,37 @@ class Distraction {
   update() {
     this.anim += 0.1;
 
-    if (activeTask) {
-      let dx = player.x - this.x;
-      let dy = player.y - this.y;
+    let speed = 0.004;
 
-      this.x += dx * 0.01;
-      this.y += dy * 0.01;
-    } else {
-      this.x += sin(this.anim) * 0.5;
+    // speed up if player doing task
+    if (activeTask) {
+      speed = 0.015;
     }
+
+    let dx = player.x - this.x;
+    let dy = player.y - this.y;
+
+    this.x += dx * speed;
+    this.y += dy * speed;
   }
 
   draw() {
-    let pulse = sin(this.anim) * 5;
+    let pulse = sin(this.anim) * 4;
 
-    fill(255, 80, 80);
+    stroke(255, 80, 80);
+    strokeWeight(3);
+    noFill();
 
-    ellipse(this.x, this.y, 60 + pulse);
+    ellipse(this.x, this.y, 50 + pulse);
 
+    noStroke();
     fill(255);
-    textSize(18);
     textAlign(CENTER);
-    text("!", this.x, this.y + 6);
+    textSize(16);
+    text("!", this.x, this.y + 5);
 
-    if (dist(player.x, player.y, this.x, this.y) < 60) {
-      focus -= 0.2;
+    if (dist(player.x, player.y, this.x, this.y) < 50) {
+      focus -= 0.15;
     }
   }
 }

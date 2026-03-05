@@ -85,8 +85,23 @@ function initLevel() {
 }
 
 function spawnDistractions() {
-  if (frameCount % 120 === 0) {
+  if (frameCount % 300 === 0) {
     distractions.push(new Distraction(random(width), random(height)));
+  }
+}
+
+function mousePressed() {
+  if (state === "lose") {
+    if (
+      mouseX > width / 2 - 80 &&
+      mouseX < width / 2 + 80 &&
+      mouseY > 360 &&
+      mouseY < 410
+    ) {
+      level = 1;
+      state = "menu";
+      initLevel();
+    }
   }
 }
 

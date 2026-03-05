@@ -47,17 +47,27 @@ function drawTaskPanel() {
 }
 
 function drawMenu() {
-  background(20);
+  background(0);
 
   fill(255);
 
   textAlign(CENTER);
 
-  textSize(50);
-  text("FOCUS FRENZY", width / 2, 250);
+  textSize(52);
+  text("FOCUS FRENZY", width / 2, 180);
 
   textSize(20);
-  text("Press SPACE to start", width / 2, 320);
+
+  text("Move with WASD", width / 2, 250);
+  text("Hover over tasks to start them", width / 2, 280);
+  text("Press the correct key sequence to finish", width / 2, 310);
+
+  text("Distractions will chase you.", width / 2, 360);
+  text("They move faster when you focus on tasks.", width / 2, 390);
+
+  text("Complete all tasks before your focus runs out.", width / 2, 440);
+
+  text("Press SPACE to start", width / 2, 500);
 }
 
 function drawWin() {
@@ -73,23 +83,42 @@ function drawWin() {
 }
 
 function drawLose() {
-  background(20);
+  background(0);
 
   fill(255);
 
-  textSize(40);
-
   textAlign(CENTER);
 
-  text("OVERWHELMED", width / 2, 300);
+  textSize(40);
+  text("OVERWHELMED", width / 2, 260);
+
+  textSize(20);
+  text("Too many distractions drained your focus.", width / 2, 310);
+
+  drawRetryButton();
+}
+
+function drawRetryButton() {
+  fill(255);
+  rect(width / 2 - 80, 360, 160, 50);
+
+  fill(0);
+  textSize(20);
+  text("TRY AGAIN", width / 2, 392);
 }
 
 function drawLevelMap() {
-  background(80, 120, 200);
+  background(0);
 
-  fill(230);
+  strokeWeight(4);
 
-  rect(150, 200, 300, 200, 10);
+  if (level === 1) stroke(0, 255, 180);
+  if (level === 2) stroke(255, 200, 0);
+  if (level === 3) stroke(255, 80, 120);
 
-  rect(550, 200, 300, 200, 10);
+  noFill();
+
+  rect(40, 60, width - 80, height - 120);
+
+  line(width / 2, 60, width / 2, height - 60);
 }

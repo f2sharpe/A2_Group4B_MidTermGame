@@ -26,11 +26,23 @@ class Player {
 
     translate(this.x, this.y + bounce);
 
-    fill(240, 200, 150);
-    ellipse(0, 0, 30, 40);
+    stroke(255);
+    strokeWeight(3);
+    fill(0);
 
-    fill(50);
-    ellipse(5, -5, 5);
+    ellipse(0, 0, 40);
+
+    fill(255);
+    noStroke();
+
+    ellipse(-7, -5, 6);
+    ellipse(7, -5, 6);
+
+    stroke(255);
+    strokeWeight(3);
+    noFill();
+
+    arc(0, 5, 20, 15, 0, PI);
 
     pop();
   }

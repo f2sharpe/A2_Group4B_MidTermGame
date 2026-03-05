@@ -9,12 +9,14 @@ class Task {
   draw() {
     if (this.done) return;
 
-    fill(60, 200, 120);
-    rect(this.x, this.y, 45, 45, 10);
+    stroke(0, 255, 150);
+    strokeWeight(3);
+    noFill();
 
-    textSize(22);
-    textAlign(CENTER);
-    text(this.icon, this.x + 22, this.y + 30);
+    rect(this.x, this.y, 40, 40);
+
+    line(this.x, this.y, this.x + 40, this.y + 40);
+    line(this.x + 40, this.y, this.x, this.y + 40);
   }
 
   checkHover() {
